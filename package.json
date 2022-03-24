@@ -2,7 +2,7 @@
   "name": "contract-ui",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://locahost:8080",
+  "proxy": "https://contract-ui-lake.vercel.app",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
