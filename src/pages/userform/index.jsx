@@ -24,7 +24,7 @@ const UserForm = () => {
 
     axios
       .post(
-        baseURL + `/candidate/profile/${candiDateData?._id}/download`,
+        `http://localhost:8080/candidate/profile/${candiDateData?._id}/download`,
         {},
         { responseType: "blob" }
       )
@@ -45,12 +45,14 @@ const UserForm = () => {
       phone: formData.phone,
     };
 
-    axios.post(baseURL + "/candidate/profile", body).then((response) => {
-      localStorage.setItem(
-        "candiDateData",
-        JSON.stringify(response?.data?.candidateData)
-      );
-    });
+    axios
+      .post("http://localhost:8080/candidate/profile", body)
+      .then((response) => {
+        localStorage.setItem(
+          "candiDateData",
+          JSON.stringify(response?.data?.candidateData)
+        );
+      });
   };
 
   return (
