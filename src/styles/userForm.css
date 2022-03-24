@@ -1,0 +1,8 @@
+.inputField {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#pdfIcon {
+  transform: scale(2.5);
+}
