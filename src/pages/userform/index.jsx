@@ -2,8 +2,7 @@ import React from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { PictureAsPdf } from "@mui/icons-material";
-import { saveAs } from "file-saver";
+import { useNavigate } from "react-router-dom";
 
 import {
   getErrorMessage,
@@ -13,32 +12,13 @@ import {
 
 const UserForm = () => {
   const baseURL = process.env.REACT_APP_API_SERVER;
-  const [isShow, setIsShow] = React.useState(false);
+  const history = useNavigate();
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm();
-
-  const downloadContractPdf = () => {
-    const candiDateData = JSON.parse(localStorage.getItem("candiDateData"));
-
-    axios
-      .post(
-        `http://localhost:8080/candidate/profile/${candiDateData?._id}/download`,
-        {},
-        { responseType: "blob" }
-      )
-      .then((response) => {
-        const blob = new Blob([response?.data], {
-          type: "application/pdf",
-        });
-        saveAs(blob, "contract.pdf");
-        localStorage.clear();
-      });
-  };
 
   const onSubmit = (formData) => {
     const body = {
@@ -56,12 +36,7 @@ const UserForm = () => {
           "candiDateData",
           JSON.stringify(response?.data?.candidateData)
         );
-        setIsShow((isShow) => !isShow);
-        setValue("firstName", "");
-        setValue("lastName", "");
-        setValue("adharNumber", "");
-        setValue("panNumber", "");
-        setValue("phone", "");
+        history("/download-contract");
       });
   };
 
@@ -150,11 +125,6 @@ const UserForm = () => {
           </div>
         </form>
       </div>
-      {isShow && (
-        <div onClick={downloadContractPdf} id="pdfIcon">
-          <PictureAsPdf />
-        </div>
-      )}
     </Box>
   );
 };
