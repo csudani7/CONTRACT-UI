@@ -13,9 +13,12 @@ import {
 
 const UserForm = () => {
   const baseURL = process.env.REACT_APP_API_SERVER;
+  const [isShow, setIsShow] = React.useState(false);
+
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -33,6 +36,7 @@ const UserForm = () => {
           type: "application/pdf",
         });
         saveAs(blob, "contract.pdf");
+        localStorage.clear();
       });
   };
 
@@ -52,6 +56,12 @@ const UserForm = () => {
           "candiDateData",
           JSON.stringify(response?.data?.candidateData)
         );
+        setIsShow((isShow) => !isShow);
+        setValue("firstName", "");
+        setValue("lastName", "");
+        setValue("adharNumber", "");
+        setValue("panNumber", "");
+        setValue("phone", "");
       });
   };
 
@@ -140,7 +150,7 @@ const UserForm = () => {
           </div>
         </form>
       </div>
-      {localStorage.getItem("candiDateData") && (
+      {isShow && (
         <div onClick={downloadContractPdf} id="pdfIcon">
           <PictureAsPdf />
         </div>
