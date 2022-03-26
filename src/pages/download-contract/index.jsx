@@ -15,7 +15,14 @@ const DownloadContract = () => {
       .post(
         `https://contract-be.vercel.app/candidate/profile/${candiDateData?._id}/download`,
         {},
-        { responseType: "blob" }
+
+        {
+          responseType: "blob",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          },
+        }
       )
       .then((response) => {
         const blob = new Blob([response?.data], {
