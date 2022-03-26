@@ -30,7 +30,7 @@ const UserForm = () => {
     };
 
     axios
-      .post("http://localhost:8080/candidate/profile", body)
+      .post("https://contract-be.vercel.app/candidate/profile", body)
       .then((response) => {
         localStorage.setItem(
           "candiDateData",

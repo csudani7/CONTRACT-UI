@@ -13,9 +13,8 @@ const DownloadContract = () => {
 
     axios
       .post(
-        `http://localhost:8080/candidate/profile/${candiDateData?._id}/download`,
-        {},
-        { responseType: "blob" }
+        `https://contract-be.vercel.app/candidate/profile/${candiDateData?._id}/download`,
+        {}
       )
       .then((response) => {
         const blob = new Blob([response?.data], {
@@ -29,9 +28,9 @@ const DownloadContract = () => {
 
   return (
     <div className="contractMainDiv">
-        <h1>Download your Contract here....</h1>
+      <h1>Download your Contract here....</h1>
       <div onClick={downloadContractPdf} id="pdfIcon">
-         <PictureAsPdf />
+        <PictureAsPdf />
       </div>
     </div>
   );
