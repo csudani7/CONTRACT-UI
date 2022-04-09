@@ -24,7 +24,7 @@ const DownloadContract = () => {
             "accept-language": "blob,buffer,utf-8",
             "accept": "application/pdf,application/json, text/plain,",
             "Access-Control-Allow-Origin":
-              "https://contract-ui-lake.vercel.app",
+              "*",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         }
