@@ -25,7 +25,6 @@ const DownloadContract = () => {
             "Access-Control-Allow-Origin":
               "https://contract-ui-lake.vercel.app",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-            ":authority": "https://contract-ui-lake.vercel.app",
           },
         }
         // {
