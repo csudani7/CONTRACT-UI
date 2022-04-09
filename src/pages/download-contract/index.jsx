@@ -19,7 +19,7 @@ const DownloadContract = () => {
         {
           responseType: "blob",
           headers: {
-            "content-Type": "application/pdf",
+            "content-Type": "application/pdf,application/x-www-form-urlencoded; charset=UTF-8;application/json",
             "accept-language":"blob,buffer,utf-8",
             "accept": "application/pdf,application/json, text/plain,",
             "Access-Control-Allow-Origin":
