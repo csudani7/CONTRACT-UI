@@ -23,8 +23,7 @@ const DownloadContract = () => {
               "application/pdf,application/x-www-form-urlencoded,charset=UTF-8;application/json",
             "accept-language": "blob,buffer,utf-8",
             "accept": "application/pdf,application/json, text/plain,",
-            "Access-Control-Allow-Origin":
-              "*",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         }
