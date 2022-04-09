@@ -10,52 +10,28 @@ const DownloadContract = () => {
 
   const downloadContractPdf = () => {
     const candiDateData = JSON.parse(localStorage.getItem("candiDateData"));
+
     axios
       .post(
-        `https://contract-be.vercel.app/candidate/profile/${candiDateData?._id}/download`,
-        {
-          // data if post, put
-          some: "data",
-        }
+        `http://localhost:8080/candidate/profile/${candiDateData?._id}/download`,
+        {},
 
-        // {
-        //   responseType: "blob",
-        //   headers: {
-        //     "content-Type":
-        //       "application/pdf,application/x-www-form-urlencoded,charset=UTF-8;application/json",
-        //     "accept-language": "blob,buffer,utf-8",
-        //     "accept": "application/pdf,application/json, text/plain,",
-        //     "Access-Control-Allow-Origin": "*",
-        //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        //   },
-        // }
-        // {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //   },
-        //   responseType: "arraybuffer",
-        // }
-        // {
-        //   headers: {
-        //     "Access-Control-Allow-Origin": "http://localhost:3000",
-        //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        //     "content-type": "text/plain",
-        //     accept: "http://localhost:3000",
-        //   },
-        // }
+        {
+          responseType: "blob",
+          headers: {
+            "Content-Type": "application/pdf",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          },
+        }
       )
       .then((response) => {
         console.log(response, "response");
         const blob = new Blob([response?.data], {
-          // type: "application/pdf",
+          type: "application/pdf",
         });
         saveAs(blob, "contract.pdf");
         localStorage.clear();
         history("/");
-      })
-      .catch((error) => {
-        console.log(error, "error");
-        console.error(error.response.data);
       });
   };
 
