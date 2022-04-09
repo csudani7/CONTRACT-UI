@@ -7,7 +7,7 @@ import DownloadContract from "./download-contract";
 
 const App = () => {
   return (
-    <Router>
+    <Router  basename='/'>
       <Routes>
         <Route exact path="/" element={<UserForm />} />
         <Route path="/download-contract" element={<DownloadContract />} />
