@@ -16,17 +16,17 @@ const DownloadContract = () => {
         `https://contract-be.vercel.app/candidate/profile/${candiDateData?._id}/download`,
         {},
 
-        {
-          responseType: "blob",
-          headers: {
-            "content-Type":
-              "application/pdf,application/x-www-form-urlencoded,charset=UTF-8;application/json",
-            "accept-language": "blob,buffer,utf-8",
-            "accept": "application/pdf,application/json, text/plain,",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-          },
-        }
+        // {
+        //   responseType: "blob",
+        //   headers: {
+        //     "content-Type":
+        //       "application/pdf,application/x-www-form-urlencoded,charset=UTF-8;application/json",
+        //     "accept-language": "blob,buffer,utf-8",
+        //     "accept": "application/pdf,application/json, text/plain,",
+        //     "Access-Control-Allow-Origin": "*",
+        //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        //   },
+        // }
         // {
         //   headers: {
         //     "Content-Type": "multipart/form-data",
