@@ -19,10 +19,13 @@ const DownloadContract = () => {
         {
           responseType: "blob",
           headers: {
-            "Content-Type": "application/pdf",
+            "content-Type": "application/pdf",
+            "accept-encoding": "gzip, deflate, br,blob,buffer,utf-8",
+            "accept": "application/pdf,application/json, text/plain,",
             "Access-Control-Allow-Origin":
               "https://contract-ui-lake.vercel.app",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            ":authority": "https://contract-ui-lake.vercel.app",
           },
         }
         // {
