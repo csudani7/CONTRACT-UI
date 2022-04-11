@@ -13,7 +13,7 @@ const DownloadContract = () => {
 
     axios
       .post(
-        `http://localhost:8080/candidate/profile/${candiDateData?._id}/download`,
+        `https://contract-be.vercel.app/candidate/profile/${candiDateData?._id}/download`,
         {},
 
         {
