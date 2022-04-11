@@ -20,6 +20,7 @@ const DownloadContract = () => {
           // responseType: "blob",
           headers: {
             // "Content-Type": "application/pdf",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         }
