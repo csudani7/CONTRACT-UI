@@ -17,9 +17,9 @@ const DownloadContract = () => {
         {},
 
         {
-          responseType: "blob",
+          // responseType: "blob",
           headers: {
-            "Content-Type": "application/pdf",
+            // "Content-Type": "application/pdf",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         }
